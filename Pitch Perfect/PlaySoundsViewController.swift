@@ -43,10 +43,6 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func playSlow(sender: UIButton) {
         playAtRate(0.5)
@@ -66,11 +62,9 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     //taken from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
     @IBAction func playEcho(sender: UIButton) {
-        self.enableButtons(false)
+        enableButtons(false)
         
-        //reset the audio engine
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAndResetAudio()
         
         //stop and reset any running audio players
         echoPlayer.stop()
@@ -99,11 +93,9 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
             rate = 2.0
         }
         
-        self.enableButtons(false)
+        enableButtons(false)
         
-        //reset the audio engine
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAndResetAudio()
         
         //reset audioPlayer and play from the start
         audioPlayer.stop()
@@ -114,11 +106,9 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func playWithVariablePitch(pitch: Float) {
-        self.enableButtons(false)
+        enableButtons(false)
         
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAndResetAudio()
         
         //create the audioPlayerNode
         let audioPlayerNode = AVAudioPlayerNode()
@@ -145,6 +135,12 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         
         try! audioEngine.start()
         audioPlayerNode.play()
+    }
+    
+    func stopAndResetAudio() {
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
     func enableButtons(enabled: Bool) {

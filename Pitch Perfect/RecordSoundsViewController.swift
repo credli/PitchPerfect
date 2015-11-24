@@ -18,14 +18,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         //set the scene's initial state
+        recordingInProgress.text = "Tap to Record"
         stopRecordingButton.hidden = true
-        recordingInProgress.hidden = true
         recordButton.enabled = true
         recordButton.setImage(UIImage(named: "microphone"), forState: .Normal)
         recordButton.tag = 0
@@ -54,22 +52,21 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             audioRecorder.record()
             
             stopRecordingButton.hidden = false
-            recordingInProgress.hidden = false
             recordingInProgress.text = "Recording..."
             sender.setImage(UIImage(named: "pause"), forState: .Normal)
-            print("recording has started")
+            print("recording was started")
             sender.tag = 1
         } else if sender.tag == 1 { //when tapped in recording state
             audioRecorder.pause()
             sender.setImage(UIImage(named: "microphone"), forState: .Normal)
-            recordingInProgress.text = "Paused"
-            print("recording has paused")
+            recordingInProgress.text = "Paused, tap again to resume"
+            print("recording was paused")
             sender.tag = 2
         } else if sender.tag == 2 { //when tapped in paused state
             audioRecorder.record()
             recordingInProgress.text = "Recording..."
             sender.setImage(UIImage(named: "pause"), forState: .Normal)
-            print("recording has resumed")
+            print("recording was resumed")
             sender.tag = 1
         }
     }
@@ -83,11 +80,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(true)
-        print("recording has stopped")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        print("recording was stopped")
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -98,7 +91,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
         recordedAudio = RecordedAudio(url: recorder.url)
-        self.performSegueWithIdentifier("stopRecordingSegue", sender: recordedAudio)
+        performSegueWithIdentifier("stopRecordingSegue", sender: recordedAudio)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
