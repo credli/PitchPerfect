@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		E184FC3E1C031C4200EBAADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3D1C031C4200EBAADA /* AppDelegate.swift */; };
-		E184FC401C031C4200EBAADA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3F1C031C4200EBAADA /* ViewController.swift */; };
+		E184FC401C031C4200EBAADA /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */; };
 		E184FC431C031C4200EBAADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E184FC411C031C4200EBAADA /* Main.storyboard */; };
 		E184FC451C031C4200EBAADA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E184FC441C031C4200EBAADA /* Assets.xcassets */; };
 		E184FC481C031C4200EBAADA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E184FC461C031C4200EBAADA /* LaunchScreen.storyboard */; };
+		E184FC501C033D8C00EBAADA /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC4F1C033D8C00EBAADA /* PlaySoundsViewController.swift */; };
+		E184FC541C04560000EBAADA /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC531C04560000EBAADA /* RecordedAudio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E184FC3A1C031C4200EBAADA /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E184FC3D1C031C4200EBAADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E184FC3F1C031C4200EBAADA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
 		E184FC421C031C4200EBAADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E184FC441C031C4200EBAADA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E184FC471C031C4200EBAADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E184FC491C031C4200EBAADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E184FC4F1C033D8C00EBAADA /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
+		E184FC531C04560000EBAADA /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,40 @@
 		E184FC3C1C031C4200EBAADA /* Pitch Perfect */ = {
 			isa = PBXGroup;
 			children = (
+				E184FC561C04848400EBAADA /* Models */,
+				E184FC571C04848D00EBAADA /* Views */,
+				E184FC551C04847C00EBAADA /* Controllers */,
 				E184FC3D1C031C4200EBAADA /* AppDelegate.swift */,
-				E184FC3F1C031C4200EBAADA /* ViewController.swift */,
-				E184FC411C031C4200EBAADA /* Main.storyboard */,
 				E184FC441C031C4200EBAADA /* Assets.xcassets */,
-				E184FC461C031C4200EBAADA /* LaunchScreen.storyboard */,
 				E184FC491C031C4200EBAADA /* Info.plist */,
 			);
 			path = "Pitch Perfect";
+			sourceTree = "<group>";
+		};
+		E184FC551C04847C00EBAADA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */,
+				E184FC4F1C033D8C00EBAADA /* PlaySoundsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E184FC561C04848400EBAADA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E184FC531C04560000EBAADA /* RecordedAudio.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E184FC571C04848D00EBAADA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E184FC411C031C4200EBAADA /* Main.storyboard */,
+				E184FC461C031C4200EBAADA /* LaunchScreen.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +126,7 @@
 				TargetAttributes = {
 					E184FC391C031C4200EBAADA = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = Q293DUAH4X;
 					};
 				};
 			};
@@ -135,7 +166,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E184FC401C031C4200EBAADA /* ViewController.swift in Sources */,
+				E184FC541C04560000EBAADA /* RecordedAudio.swift in Sources */,
+				E184FC401C031C4200EBAADA /* RecordSoundsViewController.swift in Sources */,
+				E184FC501C033D8C00EBAADA /* PlaySoundsViewController.swift in Sources */,
 				E184FC3E1C031C4200EBAADA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.noviumcollective.Pitch-Perfect";
@@ -258,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.noviumcollective.Pitch-Perfect";
