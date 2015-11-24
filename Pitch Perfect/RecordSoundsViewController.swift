@@ -56,18 +56,21 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             sender.setImage(UIImage(named: "pause"), forState: .Normal)
             print("recording was started")
             sender.tag = 1
+            
         } else if sender.tag == 1 { //when tapped in recording state
             audioRecorder.pause()
             sender.setImage(UIImage(named: "microphone"), forState: .Normal)
             recordingInProgress.text = "Paused, tap again to resume"
             print("recording was paused")
             sender.tag = 2
+            
         } else if sender.tag == 2 { //when tapped in paused state
             audioRecorder.record()
             recordingInProgress.text = "Recording..."
             sender.setImage(UIImage(named: "pause"), forState: .Normal)
             print("recording was resumed")
             sender.tag = 1
+            
         }
     }
 

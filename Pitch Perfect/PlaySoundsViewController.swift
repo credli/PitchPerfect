@@ -17,6 +17,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var chipmunkButton: UIButton!
     @IBOutlet weak var vaderButton: UIButton!
     @IBOutlet weak var echoButton: UIButton!
+    @IBOutlet weak var reverbButton: UIButton!
     
     var audioPlayer: AVAudioPlayer!
     var echoPlayer: AVAudioPlayer!
@@ -60,6 +61,27 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         playWithVariablePitch(-1000)
     }
     
+    
+    func playAtRate(var rate: Float) {
+        if rate < 0.5 {
+            rate = 0.5
+        }
+        if rate > 2.0 {
+            rate = 2.0
+        }
+        
+        enableButtons(false)
+        
+        stopAndResetAudio()
+        
+        //reset audioPlayer and play from the start
+        audioPlayer.stop()
+        audioPlayer.rate = rate
+        audioPlayer.currentTime = 0.0
+        audioPlayer.play()
+        audioPlayer.updateMeters()
+    }
+    
     //taken from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
     @IBAction func playEcho(sender: UIButton) {
         enableButtons(false)
@@ -85,27 +107,23 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         echoPlayer.playAtTime(echoOffset)
     }
     
-    func playAtRate(var rate: Float) {
-        if rate < 0.5 {
-            rate = 0.5
-        }
-        if rate > 2.0 {
-            rate = 2.0
-        }
+    @IBAction func playReverb(sender: UIButton) {
+        let reverbEffect = AVAudioUnitReverb()
+        reverbEffect.loadFactoryPreset(.Cathedral)
+        reverbEffect.wetDryMix = 50
         
-        enableButtons(false)
-        
-        stopAndResetAudio()
-        
-        //reset audioPlayer and play from the start
-        audioPlayer.stop()
-        audioPlayer.rate = rate
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
-        audioPlayer.updateMeters()
+        playAudioUnitEffect(reverbEffect)
     }
     
     func playWithVariablePitch(pitch: Float) {
+        
+        let changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = pitch
+        
+        playAudioUnitEffect(changePitchEffect)
+    }
+    
+    func playAudioUnitEffect(unit: AVAudioUnit) {
         enableButtons(false)
         
         stopAndResetAudio()
@@ -114,14 +132,11 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        //create our effect
-        let changePitchEffect = AVAudioUnitTimePitch()
-        changePitchEffect.pitch = pitch
-        audioEngine.attachNode(changePitchEffect)
+        audioEngine.attachNode(unit)
         
-        //connect audioPlayerNode -> changePitchEffect -> audioEngine.outputNode
-        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
-        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        //connect audioPlayerNode -> unit -> audioEngine.outputNode
+        audioEngine.connect(audioPlayerNode, to: unit, format: nil)
+        audioEngine.connect(unit, to: audioEngine.outputNode, format: nil)
         
         //schedule the file
         audioPlayerNode.scheduleFile(audioFile, atTime: nil) {
@@ -150,6 +165,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         chipmunkButton.enabled = enabled
         vaderButton.enabled = enabled
         echoButton.enabled = enabled
+        reverbButton.enabled = enabled
     }
     
     @IBAction func stop(sender: UIButton) {
