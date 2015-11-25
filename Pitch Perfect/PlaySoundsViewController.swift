@@ -2,7 +2,7 @@
 //  PlaySoundsViewController.swift
 //  Pitch Perfect
 //
-//  Created by Nicholas E. Credli on 11/23/15.
+//  Created by Nicholas Credli on 11/23/15.
 //  Copyright © 2015 Novium Collective SARL. All rights reserved.
 //
 
@@ -38,7 +38,6 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine = AVAudioEngine()
         
         try! audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl)
-        
     }
     
     override func viewWillAppear(animated: Bool) {

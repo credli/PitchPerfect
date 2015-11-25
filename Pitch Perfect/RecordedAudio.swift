@@ -2,7 +2,7 @@
 //  RecordedAudio.swift
 //  Pitch Perfect
 //
-//  Created by Nicholas E. Credli on 11/24/15.
+//  Created by Nicholas Credli on 11/24/15.
 //  Copyright © 2015 Novium Collective SARL. All rights reserved.
 //
 

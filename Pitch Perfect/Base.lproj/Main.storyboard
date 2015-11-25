@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ksh-b6-xM4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ksh-b6-xM4">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -93,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252.5" y="368"/>
+            <point key="canvasLocation" x="1228.5" y="368"/>
         </scene>
         <!--Play Sounds View Controller-->
         <scene sceneID="tKl-y8-mwP">
@@ -202,20 +203,20 @@
                                 <exclude reference="Css-o3-HZX"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AqE-6q-6qT"/>
-                                <exclude reference="gpo-Tt-bBe"/>
-                                <exclude reference="bF8-FA-5qo"/>
-                                <exclude reference="wgy-G8-fxn"/>
-                                <exclude reference="Dpi-wp-1Ks"/>
-                                <exclude reference="hdt-GR-aT0"/>
+                                <exclude reference="DQH-MH-SqK"/>
                                 <exclude reference="X7f-Sp-o9d"/>
                                 <exclude reference="n4i-3I-VNE"/>
-                                <exclude reference="BG5-lJ-VYi"/>
-                                <exclude reference="VYk-BZ-YNW"/>
                                 <exclude reference="9LG-Xd-tUA"/>
                                 <exclude reference="Uu8-4M-wOc"/>
                                 <exclude reference="rWx-Fj-ReX"/>
-                                <exclude reference="DQH-MH-SqK"/>
+                                <exclude reference="AqE-6q-6qT"/>
+                                <exclude reference="gpo-Tt-bBe"/>
+                                <exclude reference="BG5-lJ-VYi"/>
+                                <exclude reference="VYk-BZ-YNW"/>
+                                <exclude reference="Dpi-wp-1Ks"/>
+                                <exclude reference="hdt-GR-aT0"/>
+                                <exclude reference="bF8-FA-5qo"/>
+                                <exclude reference="wgy-G8-fxn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -230,20 +231,20 @@
                                 <include reference="Css-o3-HZX"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AqE-6q-6qT"/>
-                                <include reference="gpo-Tt-bBe"/>
-                                <include reference="bF8-FA-5qo"/>
-                                <include reference="wgy-G8-fxn"/>
-                                <include reference="Dpi-wp-1Ks"/>
-                                <include reference="hdt-GR-aT0"/>
+                                <include reference="DQH-MH-SqK"/>
                                 <include reference="X7f-Sp-o9d"/>
                                 <include reference="n4i-3I-VNE"/>
-                                <include reference="BG5-lJ-VYi"/>
-                                <include reference="VYk-BZ-YNW"/>
                                 <include reference="9LG-Xd-tUA"/>
                                 <include reference="Uu8-4M-wOc"/>
                                 <include reference="rWx-Fj-ReX"/>
-                                <include reference="DQH-MH-SqK"/>
+                                <include reference="AqE-6q-6qT"/>
+                                <include reference="gpo-Tt-bBe"/>
+                                <include reference="BG5-lJ-VYi"/>
+                                <include reference="VYk-BZ-YNW"/>
+                                <include reference="Dpi-wp-1Ks"/>
+                                <include reference="hdt-GR-aT0"/>
+                                <include reference="bF8-FA-5qo"/>
+                                <include reference="wgy-G8-fxn"/>
                             </mask>
                         </variation>
                     </view>
