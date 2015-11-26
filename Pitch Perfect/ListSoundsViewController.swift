@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 protocol ListSoundsViewControllerDelegate {
     func listSoundViewController(listSoundsViewController: ListSoundsViewController, didSelectSoundFile soundFilePath: NSURL)
@@ -17,7 +18,6 @@ class ListSoundsViewController: UITableViewController {
     var delegate: ListSoundsViewControllerDelegate?
     
     override func viewWillAppear(animated: Bool) {
-        print("view will appear")
         super.viewWillAppear(animated)
         files = getDirectoryContents()
         self.tableView.reloadData()
@@ -85,5 +85,27 @@ class ListSoundsViewController: UITableViewController {
             }
             
         }
+    }
+}
+
+extension ListSoundsViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.emptyDataSetSource = self
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let text = "History's empty, go record something first!"
+        let attribtues = [NSFontAttributeName: UIFont.boldSystemFontOfSize(16.0), NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        
+        return NSAttributedString(string: text, attributes: attribtues)
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+        return (files.count == 0)
     }
 }

@@ -73,14 +73,14 @@
                                 <exclude reference="ext-a5-efW"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8MK-FW-gmt"/>
-                                <exclude reference="VQD-0k-PzW"/>
-                                <exclude reference="JvS-hj-5kz"/>
-                                <exclude reference="NYM-YQ-QV6"/>
-                                <exclude reference="FNy-by-pCw"/>
                                 <exclude reference="29m-jf-fri"/>
                                 <exclude reference="VCz-W7-WjN"/>
+                                <exclude reference="FNy-by-pCw"/>
+                                <exclude reference="8MK-FW-gmt"/>
+                                <exclude reference="VQD-0k-PzW"/>
                                 <exclude reference="W2P-b2-EHD"/>
+                                <exclude reference="JvS-hj-5kz"/>
+                                <exclude reference="NYM-YQ-QV6"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -91,14 +91,14 @@
                                 <include reference="ext-a5-efW"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="8MK-FW-gmt"/>
-                                <include reference="VQD-0k-PzW"/>
-                                <include reference="JvS-hj-5kz"/>
-                                <include reference="NYM-YQ-QV6"/>
-                                <include reference="FNy-by-pCw"/>
                                 <include reference="29m-jf-fri"/>
                                 <include reference="VCz-W7-WjN"/>
+                                <include reference="FNy-by-pCw"/>
+                                <include reference="8MK-FW-gmt"/>
+                                <include reference="VQD-0k-PzW"/>
                                 <include reference="W2P-b2-EHD"/>
+                                <include reference="JvS-hj-5kz"/>
+                                <include reference="NYM-YQ-QV6"/>
                             </mask>
                         </variation>
                     </view>
@@ -286,13 +286,22 @@
             <objects>
                 <tableViewController storyboardIdentifier="ListSoundsView" id="sKf-ue-aJ6" customClass="ListSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="u6Q-fN-HcX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="nyj-SS-D51">
+                            <rect key="frame" x="0.0" y="93" width="600" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" rowHeight="65" id="KK2-DI-IVg">
+                                <rect key="frame" x="0.0" y="28" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KK2-DI-IVg" id="LMr-dE-j02">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
