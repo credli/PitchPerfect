@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E12319741C074EB500618FEB /* ListSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12319731C074EB500618FEB /* ListSoundsViewController.swift */; };
+		E12319791C07650F00618FEB /* DrawerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12319781C07650F00618FEB /* DrawerAnimation.swift */; };
+		E123197B1C077C1500618FEB /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E123197A1C077C1500618FEB /* Reveal.framework */; };
 		E184FC3E1C031C4200EBAADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3D1C031C4200EBAADA /* AppDelegate.swift */; };
 		E184FC401C031C4200EBAADA /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */; };
 		E184FC431C031C4200EBAADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E184FC411C031C4200EBAADA /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E12319731C074EB500618FEB /* ListSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSoundsViewController.swift; sourceTree = "<group>"; };
+		E12319781C07650F00618FEB /* DrawerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerAnimation.swift; sourceTree = "<group>"; };
+		E123197A1C077C1500618FEB /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		E184FC3A1C031C4200EBAADA /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E184FC3D1C031C4200EBAADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E123197B1C077C1500618FEB /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +71,7 @@
 				E184FC3D1C031C4200EBAADA /* AppDelegate.swift */,
 				E184FC441C031C4200EBAADA /* Assets.xcassets */,
 				E184FC491C031C4200EBAADA /* Info.plist */,
+				E123197A1C077C1500618FEB /* Reveal.framework */,
 			);
 			path = "Pitch Perfect";
 			sourceTree = "<group>";
@@ -73,6 +81,7 @@
 			children = (
 				E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */,
 				E184FC4F1C033D8C00EBAADA /* PlaySoundsViewController.swift */,
+				E12319731C074EB500618FEB /* ListSoundsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -80,6 +89,7 @@
 		E184FC561C04848400EBAADA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E12319781C07650F00618FEB /* DrawerAnimation.swift */,
 				E184FC531C04560000EBAADA /* RecordedAudio.swift */,
 			);
 			name = Models;
@@ -166,9 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12319741C074EB500618FEB /* ListSoundsViewController.swift in Sources */,
 				E184FC541C04560000EBAADA /* RecordedAudio.swift in Sources */,
 				E184FC401C031C4200EBAADA /* RecordSoundsViewController.swift in Sources */,
 				E184FC501C033D8C00EBAADA /* PlaySoundsViewController.swift in Sources */,
+				E12319791C07650F00618FEB /* DrawerAnimation.swift in Sources */,
 				E184FC3E1C031C4200EBAADA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,8 +293,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.noviumcollective.Pitch-Perfect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -293,6 +316,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.noviumcollective.Pitch-Perfect";

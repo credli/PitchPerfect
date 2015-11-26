@@ -44,23 +44,6 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         stopButton.hidden = true
     }
     
-    @IBAction func playSlow(sender: UIButton) {
-        playAtRate(0.5)
-    }
-
-    @IBAction func playFast(sender: UIButton) {
-        playAtRate(1.5)
-    }
-    
-    @IBAction func playChipmunk(sender: UIButton) {
-        playWithVariablePitch(1000)
-    }
-    
-    @IBAction func playVader(sender: UIButton) {
-        playWithVariablePitch(-1000)
-    }
-    
-    
     func playAtRate(var rate: Float) {
         if rate < 0.5 {
             rate = 0.5
@@ -81,41 +64,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioPlayer.updateMeters()
     }
     
-    //taken from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
-    @IBAction func playEcho(sender: UIButton) {
-        enableButtons(false)
-        
-        stopAndResetAudio()
-        
-        //stop and reset any running audio players
-        echoPlayer.stop()
-        echoPlayer.currentTime = 0
-        audioPlayer.stop()
-        audioPlayer.rate = 1.0
-        audioPlayer.currentTime = 0
-        
-        //set the delay effect
-        let delay:NSTimeInterval = 0.2
-        var echoOffset:NSTimeInterval
-        echoOffset = echoPlayer.deviceCurrentTime + delay
-        echoPlayer.stop()
-        echoPlayer.currentTime = 0
-        echoPlayer.volume = 0.5
-        
-        audioPlayer.play()
-        echoPlayer.playAtTime(echoOffset)
-    }
-    
-    @IBAction func playReverb(sender: UIButton) {
-        let reverbEffect = AVAudioUnitReverb()
-        reverbEffect.loadFactoryPreset(.Cathedral)
-        reverbEffect.wetDryMix = 50
-        
-        playAudioUnitEffect(reverbEffect)
-    }
-    
     func playWithVariablePitch(pitch: Float) {
-        
         let changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         
@@ -165,6 +114,57 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         vaderButton.enabled = enabled
         echoButton.enabled = enabled
         reverbButton.enabled = enabled
+    }
+    
+    //MARK: - Button Actions
+    
+    @IBAction func playSlow(sender: UIButton) {
+        playAtRate(0.5)
+    }
+
+    @IBAction func playFast(sender: UIButton) {
+        playAtRate(1.5)
+    }
+    
+    @IBAction func playChipmunk(sender: UIButton) {
+        playWithVariablePitch(1000)
+    }
+    
+    @IBAction func playVader(sender: UIButton) {
+        playWithVariablePitch(-1000)
+    }
+    
+    @IBAction func playReverb(sender: UIButton) {
+        let reverbEffect = AVAudioUnitReverb()
+        reverbEffect.loadFactoryPreset(.Cathedral)
+        reverbEffect.wetDryMix = 50
+        
+        playAudioUnitEffect(reverbEffect)
+    }
+    
+    //taken from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
+    @IBAction func playEcho(sender: UIButton) {
+        enableButtons(false)
+        
+        stopAndResetAudio()
+        
+        //stop and reset any running audio players
+        echoPlayer.stop()
+        echoPlayer.currentTime = 0
+        audioPlayer.stop()
+        audioPlayer.rate = 1.0
+        audioPlayer.currentTime = 0
+        
+        //set the delay effect
+        let delay:NSTimeInterval = 0.2
+        var echoOffset:NSTimeInterval
+        echoOffset = echoPlayer.deviceCurrentTime + delay
+        echoPlayer.stop()
+        echoPlayer.currentTime = 0
+        echoPlayer.volume = 0.5
+        
+        audioPlayer.play()
+        echoPlayer.playAtTime(echoOffset)
     }
     
     @IBAction func stop(sender: UIButton) {

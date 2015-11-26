@@ -42,6 +42,14 @@
                                 <color key="textColor" red="0.14509803921568626" green="0.28235294117647058" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-a5-efW">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" image="list"/>
+                                <connections>
+                                    <action selector="showList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2R7-8y-fqu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.7401079936172742" green="0.60116870821040069" blue="0.88930124044418335" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,21 +59,28 @@
                             <constraint firstItem="GnB-PV-6dz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FNy-by-pCw"/>
                             <constraint firstItem="ZCo-L7-WRc" firstAttribute="top" secondItem="Osk-iT-krP" secondAttribute="bottom" constant="8" symbolic="YES" id="JvS-hj-5kz"/>
                             <constraint firstItem="ZCo-L7-WRc" firstAttribute="centerX" secondItem="Osk-iT-krP" secondAttribute="centerX" id="NYM-YQ-QV6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ext-a5-efW" secondAttribute="bottom" constant="20" id="VCz-W7-WjN"/>
                             <constraint firstItem="Osk-iT-krP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VQD-0k-PzW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ext-a5-efW" secondAttribute="trailing" constant="-2" id="W2P-b2-EHD">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Osk-iT-krP"/>
                                 <exclude reference="GnB-PV-6dz"/>
                                 <exclude reference="ZCo-L7-WRc"/>
+                                <exclude reference="ext-a5-efW"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="29m-jf-fri"/>
-                                <exclude reference="FNy-by-pCw"/>
                                 <exclude reference="8MK-FW-gmt"/>
                                 <exclude reference="VQD-0k-PzW"/>
                                 <exclude reference="JvS-hj-5kz"/>
                                 <exclude reference="NYM-YQ-QV6"/>
+                                <exclude reference="FNy-by-pCw"/>
+                                <exclude reference="29m-jf-fri"/>
+                                <exclude reference="VCz-W7-WjN"/>
+                                <exclude reference="W2P-b2-EHD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -73,14 +88,17 @@
                                 <include reference="Osk-iT-krP"/>
                                 <include reference="GnB-PV-6dz"/>
                                 <include reference="ZCo-L7-WRc"/>
+                                <include reference="ext-a5-efW"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="29m-jf-fri"/>
-                                <include reference="FNy-by-pCw"/>
                                 <include reference="8MK-FW-gmt"/>
                                 <include reference="VQD-0k-PzW"/>
                                 <include reference="JvS-hj-5kz"/>
                                 <include reference="NYM-YQ-QV6"/>
+                                <include reference="FNy-by-pCw"/>
+                                <include reference="29m-jf-fri"/>
+                                <include reference="VCz-W7-WjN"/>
+                                <include reference="W2P-b2-EHD"/>
                             </mask>
                         </variation>
                     </view>
@@ -88,6 +106,7 @@
                     <connections>
                         <outlet property="recordButton" destination="Osk-iT-krP" id="tux-Vl-M82"/>
                         <outlet property="recordingInProgress" destination="ZCo-L7-WRc" id="M4t-pw-vHd"/>
+                        <outlet property="showListButton" destination="ext-a5-efW" id="vG5-mg-zd1"/>
                         <outlet property="stopRecordingButton" destination="GnB-PV-6dz" id="57j-Vi-daw"/>
                         <segue destination="yoT-ga-L75" kind="show" identifier="stopRecordingSegue" id="CfP-Cp-vVF"/>
                     </connections>
@@ -262,6 +281,34 @@
             </objects>
             <point key="canvasLocation" x="2131.5" y="368"/>
         </scene>
+        <!--List Sounds View Controller-->
+        <scene sceneID="bMd-oG-AAh">
+            <objects>
+                <tableViewController storyboardIdentifier="ListSoundsView" id="sKf-ue-aJ6" customClass="ListSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="u6Q-fN-HcX">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" rowHeight="65" id="KK2-DI-IVg">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KK2-DI-IVg" id="LMr-dE-j02">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sKf-ue-aJ6" id="A2B-AI-czD"/>
+                            <outlet property="delegate" destination="sKf-ue-aJ6" id="TW4-ZY-3VJ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="672-si-kSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228.5" y="1125"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="q3f-yX-wvn">
             <objects>
@@ -286,6 +333,7 @@
         <image name="chipmunk" width="100" height="100"/>
         <image name="echo" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
+        <image name="list" width="50" height="50"/>
         <image name="microphone" width="100" height="100"/>
         <image name="reverb" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
