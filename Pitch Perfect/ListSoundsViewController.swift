@@ -93,8 +93,12 @@ extension ListSoundsViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.emptyDataSetDelegate = self
-        self.tableView.emptyDataSetSource = self
+        files = [NSURL]()
+        
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        
+        tableView.tableFooterView = UIView()
     }
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {

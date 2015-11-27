@@ -10,7 +10,6 @@
 		2135F7A5545CBF9CE16F15AD /* Pods_Pitch_Perfect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C2EB8DA64615CE5C1A10B9 /* Pods_Pitch_Perfect.framework */; };
 		E12319741C074EB500618FEB /* ListSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12319731C074EB500618FEB /* ListSoundsViewController.swift */; };
 		E12319791C07650F00618FEB /* DrawerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12319781C07650F00618FEB /* DrawerAnimation.swift */; };
-		E123197B1C077C1500618FEB /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E123197A1C077C1500618FEB /* Reveal.framework */; };
 		E184FC3E1C031C4200EBAADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3D1C031C4200EBAADA /* AppDelegate.swift */; };
 		E184FC401C031C4200EBAADA /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */; };
 		E184FC431C031C4200EBAADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E184FC411C031C4200EBAADA /* Main.storyboard */; };
@@ -26,7 +25,6 @@
 		44C2EB8DA64615CE5C1A10B9 /* Pods_Pitch_Perfect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pitch_Perfect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12319731C074EB500618FEB /* ListSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSoundsViewController.swift; sourceTree = "<group>"; };
 		E12319781C07650F00618FEB /* DrawerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerAnimation.swift; sourceTree = "<group>"; };
-		E123197A1C077C1500618FEB /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		E184FC3A1C031C4200EBAADA /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E184FC3D1C031C4200EBAADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E184FC3F1C031C4200EBAADA /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E123197B1C077C1500618FEB /* Reveal.framework in Frameworks */,
 				2135F7A5545CBF9CE16F15AD /* Pods_Pitch_Perfect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +92,6 @@
 				E184FC3D1C031C4200EBAADA /* AppDelegate.swift */,
 				E184FC441C031C4200EBAADA /* Assets.xcassets */,
 				E184FC491C031C4200EBAADA /* Info.plist */,
-				E123197A1C077C1500618FEB /* Reveal.framework */,
 			);
 			path = "Pitch Perfect";
 			sourceTree = "<group>";
@@ -377,10 +373,6 @@
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lz",
-					"-framework",
-					Reveal,
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 				);
